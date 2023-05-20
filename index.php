@@ -19,16 +19,13 @@
         <button class="btn btn-primary w-100 py-3">Inventory</button>
       </a>
       <a href="/create" class="d-block w-100 mt-3">
-        <button class="btn btn-primary w-100 py-3">Create Item</button>
-      </a>
-      <a href="/update" class="d-block w-100 mt-3">
-        <button class="btn btn-warning w-100 py-3">Modify Item</button>
-      </a>
-      <a href="/delete" class="d-block w-100 mt-3">
-        <button class="btn btn-danger w-100 py-3">Delete Item</button>
+        <button class="btn btn-secondary w-100 py-3">Create Item</button>
       </a>
       <a href="/search" class="d-block w-100 mt-3">
-        <button class="btn btn-outline-primary w-100 py-3">Inventory</button>
+        <button class="btn btn-outline-primary w-100 py-3">Search Item</button>
+      </a>
+      <a href="/logout" class="d-block w-100 mt-3">
+        <button class="btn btn-outline-danger w-100 py-3">Logout</button>
       </a>
     </div>
   </main>

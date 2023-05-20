@@ -18,7 +18,7 @@ $result = $conn->query($sql);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inventory Page</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <?php include "../components/linkrels.php"; ?>
 </head>
 
 <body>
@@ -27,20 +27,47 @@ $result = $conn->query($sql);
 
   <main class="container">
     <?php if ($result->num_rows > 0) : ?>
-      <p>table</p>
-      <table class="table table-striped">
+      <table class="table table-striped text-center mt-4">
+        <thead>
+          <tr>
+            <th scope="col">Item No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Ceiling Price</th>
+            <th scope="col">Base Price</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          while ($row = $result->fetch_assoc()) {
+            $id = $row['item_id'];
+            echo "<tr>";
+            foreach ($row as $field => $value) {
+              echo "<td>" . $value . "</td>";
+            }
+            echo "<td>
+              <div class='btn-group'>
+                <a href='/update?id=$id' class='btn btn-sm btn-warning'>
+                  <button class='btn btn-sm btn-warning'>Modify</button>
+                </a>
+                <a href='/delete?id=$id' class='btn btn-sm btn-danger'>
+                  <button class='btn btn-sm btn-danger'>Delete</button>
+                </a>
+              </div>
+              </td>";
+            echo "</tr>";
+          }
+          ?>
+        </tbody>
       </table>
     <?php else : ?>
       <p>No Items in the Inventory</p>
     <?php endif; ?>
 
   </main>
-
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
 </body>
 
 </html>
