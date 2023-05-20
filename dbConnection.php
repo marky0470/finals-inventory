@@ -1,5 +1,7 @@
 <?php
 
+// THIS IS THE DATABASE CONNECTION FILE
+
 function connect() {
   
   $dbhost = "localhost";
@@ -10,5 +12,3 @@ function connect() {
   
   return $conn;
 }
-
-?>
