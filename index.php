@@ -16,9 +16,9 @@
 
   <a href="/inventory">Inventory</a>
   <a href="/create">Create Item</a>
-  <a href="/create">Update Item</a>
-  <a href="/create">Delete Item</a>
-  <a href="/create">Search Item</a>
+  <a href="/update">Update Item</a>
+  <a href="/delete">Delete Item</a>
+  <a href="/search">Search Item</a>
 </body>
 
 </html>
