@@ -22,7 +22,7 @@ echo '<nav class="navbar navbar-expand-lg bg-body-tertiary">
     </ul>
     <ul class="navbar-nav mb-2 mb-lg-0">
       <li class="nav-item">
-        <a href="/logout/">Logout</a>
+        <a class="nav-link" href="/logout/">Logout</a>
       </li>
     </ul>
   </div>
