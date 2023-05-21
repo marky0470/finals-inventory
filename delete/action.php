@@ -16,9 +16,9 @@ $sql = "DELETE FROM items WHERE item_id=" . $id;
 
 
 if ($conn->query($sql) === TRUE) {
-  include_once '../delete/success.php';
+  header("Location: ./success.php/");
 } else {
-  include_once '../delete/error.php';
+  header("Location: ./error.php/");
 }
 
 

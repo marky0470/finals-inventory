@@ -22,9 +22,9 @@ $sql = "UPDATE items SET name='" . $name . "', category='" . $category . "', qua
 
 
 if ($conn->query($sql) === TRUE) {
-  include_once '../update/success.php';
+  header("Location: ./success.php/");
 } else {
-  include_once '../update/error.php';
+  header("Location: ./error.php/");
 }
 
 

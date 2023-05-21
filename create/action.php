@@ -22,9 +22,9 @@ $sql = "INSERT INTO items (name, category, quantity, price, ceiling_price, base_
 
 
 if ($conn->query($sql) === TRUE) {
-  include_once '../create/success.php';
+  header("Location: ./success.php/");
 } else {
-  include_once '../create/error.php';
+  header("Location: ./error.php/");
 }
 
 
