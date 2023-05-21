@@ -22,7 +22,7 @@
       </li>
       <?php if ($_SESSION["clearanceLevel"] == 'admin') { ?>
       <li class="nav-item mx-3">
-        <a class="nav-link" href="/users">User</a>
+        <a class="nav-link" href="/users">Users</a>
       </li>
       <?php } ?>
     </ul>
