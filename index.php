@@ -7,8 +7,13 @@ $conn = connect();
 
 if (!isset($_SESSION['user_id'])) {
   echo 'Not authorized';
+  header("Location: /login");
   return;
 }
+
+$result = $conn->query("SELECT * FROM users WHERE user_id=" . $_SESSION['user_id']);
+// echo "SELECT * FROM users WHERE user_id=" . $_SESSION['user_id'];
+$user = $result->fetch_assoc()
 
 ?>
 
@@ -38,7 +43,14 @@ if (!isset($_SESSION['user_id'])) {
       <a href="/search?search=" class="d-block w-100 mt-3">
         <button class="btn btn-outline-primary w-100 py-3">Search Item</button>
       </a>
-      <a href="/logout" class="d-block w-100 mt-3">
+
+      <?php if ($user['clearanceLevel'] === "admin") : ?>
+        <a href=" /users" class="d-block w-100 mt-3">
+          <button class="btn btn-outline-secondary w-100 py-3">Users</button>
+        </a>
+      <?php endif; ?>
+
+      <a href=" /logout" class="d-block w-100 mt-3">
         <button class="btn btn-outline-danger w-100 py-3">Logout</button>
       </a>
     </div>
