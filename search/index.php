@@ -69,13 +69,9 @@ $search = $_GET['search'] or null;
     <main class="container">
       <form action="" class="w-50 mx-auto mt-5 d-block py-5" method="get">
         <label for="search">Search Item: </label>
-        <input type="text" class="form-control" name="search" id="search" />
+        <input type="text" class="form-control" name="search" placeholder="<?php echo $search ?>" id="search" />
         <button class="btn btn-primary w-100 mt-4 py-2">Search</button>
-      </form>
-
-      <section>
-        <p>Search: <?php echo $search ?></p>
-      </section>
+</form>
 
       <?php if ($result->num_rows > 0) : ?>
         <table class="table table-striped text-center mt-4">
