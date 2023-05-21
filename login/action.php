@@ -29,4 +29,4 @@ session_start();
 $_SESSION['user_id'] = $user_id;
 $_SESSION['username'] = $username;
 
-header("Location: ../inventory/");
+header("Location: ../index.php");
