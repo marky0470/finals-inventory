@@ -35,7 +35,7 @@ if (!isset($_SESSION['user_id'])) {
       <a href="/create" class="d-block w-100 mt-3">
         <button class="btn btn-secondary w-100 py-3">Create Item</button>
       </a>
-      <a href="/search" class="d-block w-100 mt-3">
+      <a href="/search?search=" class="d-block w-100 mt-3">
         <button class="btn btn-outline-primary w-100 py-3">Search Item</button>
       </a>
       <a href="/logout" class="d-block w-100 mt-3">

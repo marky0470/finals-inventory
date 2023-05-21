@@ -17,7 +17,7 @@ echo '<nav class="navbar navbar-expand-lg bg-body-tertiary">
         <a class="nav-link" href="/create">Create</a>
       </li>
       <li class="nav-item mx-3">
-        <a class="nav-link" href="/search">Search</a>
+        <a class="nav-link" href="/search?search=">Search</a>
       </li>
     </ul>
     <ul class="navbar-nav mb-2 mb-lg-0">

@@ -14,7 +14,7 @@ $search = $_GET['search'] or null;
 
 ?>
 
-<?php if ($search === null) : ?>
+<?php if ($search === '') : ?>
   <!DOCTYPE html>
   <html lang="en">
 
