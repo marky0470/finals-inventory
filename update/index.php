@@ -45,7 +45,7 @@ $result = $conn->query($sql);
         </div>
         <div>
           <label for="id" class="form-label">Item ID: </label>
-          <input type="text" name="id" id="id" value='<?php echo $row["item_id"]; ?>' class="form-control" disabled>
+          <input  style="background-color: #adb5bd;" type="text" name="id" id="id" value='<?php echo $row["item_id"]; ?>' class="form-control" readonly>
         </div>
         <div class="mt-3">
           <label for="name" class="form-label">Item Name: </label>
