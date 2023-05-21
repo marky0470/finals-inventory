@@ -10,7 +10,7 @@ if ($_SESSION['clearanceLevel'] != 'admin') {
   return;
 }
 
-$sql = "SELECT * FROM users;";
+$sql = "SELECT user_id, username, clearanceLevel FROM users;";
 $result = $conn->query($sql);
 
 ?>
@@ -32,13 +32,18 @@ $result = $conn->query($sql);
   <?php include "../navbar.php"; ?>
 
   <main class="container">
+    <div class="mt-3 d-flex justify-content-between">
+      <h2>Users Table</h2>
+      <a href="/register">
+        <button class="btn btn-primary">Register</button>
+      </a>
+    </div>
     <?php if ($result->num_rows > 0) : ?>
       <table class="table table-striped text-center mt-4">
         <thead>
           <tr>
             <th scope="col">User No.</th>
             <th scope="col">Username</th>
-            <th scope="col">Password</th>
             <th scope="col">Clearance Level</th>
           </tr>
         </thead>
@@ -52,10 +57,10 @@ $result = $conn->query($sql);
             }
             echo "<td>
               <div class='btn-group'>
-                <a href='/update?id=$id' class='btn btn-sm btn-warning'>
+                <a href='/users/update?id=$id' class='btn btn-sm btn-warning'>
                   <button class='btn btn-sm btn-warning'>Modify</button>
                 </a>
-                <a href='/delete?id=$id' class='btn btn-sm btn-danger'>
+                <a href='/users/delete?id=$id' class='btn btn-sm btn-danger'>
                   <button class='btn btn-sm btn-danger'>Delete</button>
                 </a>
               </div>
