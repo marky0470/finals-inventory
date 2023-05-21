@@ -14,6 +14,7 @@ $row = $result->fetch_assoc();
 $hashedPassword = $row["password"];
 $user_id = $row["user_id"];
 $username = $row["username"];
+$clearanceLevel = $row["clearanceLevel"];
 
 if (!$hashedPassword) {
   header("Location: ./error.php?error=".urlencode("User does not exist"));
@@ -28,6 +29,7 @@ if (!password_verify($password, $hashedPassword)) {
 session_start();
 $_SESSION['user_id'] = $user_id;
 $_SESSION['username'] = $username;
+$_SESSION['clearanceLevel'] = $clearanceLevel;
 
 header("Location: ../index.php");
 
