@@ -13,7 +13,7 @@ $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 $sql = "SELECT username FROM users WHERE username='" . $username . "'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-  echo "User already exists";
+  header("Location: ./error.php?error=".urlencode("User already exists"));
   return;
 }
 
