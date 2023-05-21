@@ -1,8 +1,14 @@
 <?php
 
-include_once "../dbConnection.php";
+include_once '../dbConnection.php';
 
+session_start();
 $conn = connect();
+
+if (!isset($_SESSION['user_id'])) {
+  echo 'Not authorized';
+  return;
+}
 
 $search = $_GET['search'] or null;
 
