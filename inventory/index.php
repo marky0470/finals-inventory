@@ -43,7 +43,7 @@ $result = $conn->query($sql);
             <th scope="col">Price</th>
             <th scope="col">Ceiling Price</th>
             <th scope="col">Base Price</th>
-            <th scope="col">Actions</th>
+            <?php if ($_SESSION['clearanceLevel'] == 'admin') { echo '<th scope="col">Actions</th>'; } ?>
           </tr>
         </thead>
         <tbody>
@@ -54,6 +54,7 @@ $result = $conn->query($sql);
             foreach ($row as $field => $value) {
               echo "<td>" . $value . "</td>";
             }
+            if ($_SESSION['clearanceLevel'] == 'admin') {
             echo "<td>
               <div class='btn-group'>
                 <a href='/update?id=$id' class='btn btn-sm btn-warning'>
@@ -64,6 +65,7 @@ $result = $conn->query($sql);
                 </a>
               </div>
               </td>";
+            }
             echo "</tr>";
           }
           ?>

@@ -84,7 +84,7 @@ $search = $_GET['search'] or null;
               <th scope="col">Price</th>
               <th scope="col">Ceiling Price</th>
               <th scope="col">Base Price</th>
-              <th scope="col">Actions</th>
+              <?php if ($_SESSION['clearanceLevel'] == 'admin') { echo '<th scope="col">Actions</th>'; } ?>
             </tr>
           </thead>
           <tbody>
@@ -95,16 +95,18 @@ $search = $_GET['search'] or null;
               foreach ($row as $field => $value) {
                 echo "<td>" . $value . "</td>";
               }
-              echo "<td>
-              <div class='btn-group'>
-                <a href='/update?id=$id' class='btn btn-sm btn-warning'>
-                  <button class='btn btn-sm btn-warning'>Modify</button>
-                </a>
-                <a href='/delete?id=$id' class='btn btn-sm btn-danger'>
-                  <button class='btn btn-sm btn-danger'>Delete</button>
-                </a>
-              </div>
-              </td>";
+              if ($_SESSION['clearanceLevel'] == 'admin') {
+                echo "<td>
+                  <div class='btn-group'>
+                    <a href='/update?id=$id' class='btn btn-sm btn-warning'>
+                      <button class='btn btn-sm btn-warning'>Modify</button>
+                    </a>
+                    <a href='/delete?id=$id' class='btn btn-sm btn-danger'>
+                      <button class='btn btn-sm btn-danger'>Delete</button>
+                    </a>
+                  </div>
+                  </td>";
+              }
               echo "</tr>";
             }
             ?>

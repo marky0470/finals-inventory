@@ -18,11 +18,11 @@
         <h1 class="lh-1">Login</h1>
       </div>
       <div>
-        <label for="username" class="form-label">username: </label>
+        <label for="username" class="form-label">Username: </label>
         <input type="text" name="username" id="username" class="form-control" required>
       </div>
       <div class="mt-3">
-        <label for="password" class="form-label">password: </label>
+        <label for="password" class="form-label">Password: </label>
         <input type="password" name="password" id="password" class="form-control" required>
       </div>
       <button type="submit" class="mt-3 btn btn-primary">Submit</button>  

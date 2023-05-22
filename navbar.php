@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)) { 
+  session_start(); 
+} 
 ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
 <div class="container-fluid">
@@ -22,7 +25,7 @@
       </li>
       <?php if ($_SESSION["clearanceLevel"] == 'admin') { ?>
       <li class="nav-item mx-3">
-        <a class="nav-link" href="/users">Users</a>
+        <a class="nav-link" href="/users">User</a>
       </li>
       <?php } ?>
     </ul>
@@ -33,4 +36,4 @@
     </ul>
   </div>
 </div>
-</nav>';
+</nav>

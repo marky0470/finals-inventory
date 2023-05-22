@@ -17,12 +17,12 @@ $username = $row["username"];
 $clearanceLevel = $row["clearanceLevel"];
 
 if (!$hashedPassword) {
-  header("Location: ./error.php?error=".urlencode("User does not exist"));
+  header("Location: ./error.php?error=" . urlencode("User does not exist"));
   return;
 }
 
 if (!password_verify($password, $hashedPassword)) {
-  header("Location: ./error.php?error=".urlencode("Incorrect password"));
+  header("Location: ./error.php?error=" . urlencode("Incorrect password"));
   return;
 }
 
@@ -33,4 +33,4 @@ $_SESSION['clearanceLevel'] = $clearanceLevel;
 
 header("Location: ../index.php");
 
-$conn = close();
+// $conn->close();

@@ -7,8 +7,13 @@ $conn = connect();
 
 if (!isset($_SESSION['user_id'])) {
   echo 'Not authorized';
+  header("Location: /login");
   return;
 }
+
+$result = $conn->query("SELECT * FROM users WHERE user_id=" . $_SESSION['user_id']);
+// echo "SELECT * FROM users WHERE user_id=" . $_SESSION['user_id'];
+$user = $result->fetch_assoc()
 
 ?>
 
@@ -26,7 +31,7 @@ if (!isset($_SESSION['user_id'])) {
 <body>
 
   <main class="text-center container d-flex align-items-center justify-content-center flex-column" style="height: 100vh;">
-    <h1 class="display-3 fw-bold mb-4">Inventory System</h1>
+    <h1 class="display-3 fw-bold mb-4">Bethel's Chocolate Store<br>Inventory System</h1>
 
     <div class="btn-group-vertical w-50">
       <a href="/inventory" class="d-block w-100">
@@ -38,7 +43,14 @@ if (!isset($_SESSION['user_id'])) {
       <a href="/search?search=" class="d-block w-100 mt-3">
         <button class="btn btn-outline-primary w-100 py-3">Search Item</button>
       </a>
-      <a href="/logout" class="d-block w-100 mt-3">
+
+      <?php if ($user['clearanceLevel'] === "admin") : ?>
+        <a href=" /users" class="d-block w-100 mt-3">
+          <button class="btn btn-outline-secondary w-100 py-3">Users</button>
+        </a>
+      <?php endif; ?>
+
+      <a href=" /logout" class="d-block w-100 mt-3">
         <button class="btn btn-outline-danger w-100 py-3">Logout</button>
       </a>
     </div>
